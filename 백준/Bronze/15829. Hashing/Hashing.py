@@ -3,9 +3,14 @@ import sys
 N = int(sys.stdin.readline().strip())
 L = sys.stdin.readline().strip()
 
+M = 1234567891
+r = 31
 ans = 0
+power = 1
+
 for i in range(N):
-    tmp = (ord(L[i])-96) * (31 ** i)
-    ans += tmp
-    
+    num = ord(L[i]) - 96 # 'a': 97 -> 1
+    ans = (ans + num * power) % M
+    power = (power * r) % M
+
 print(ans)
