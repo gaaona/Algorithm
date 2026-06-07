@@ -1,11 +1,8 @@
 function solution(n)
 {
     let answer = 0;
-    
-    while (n > 0) {
-        answer += (n%10);
-        n = Math.trunc(n / 10);
-    };
 
+    n.toString().split('').forEach(num => answer+= parseInt(num));
+    
     return answer;
 }
